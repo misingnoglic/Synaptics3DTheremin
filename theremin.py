@@ -1,11 +1,11 @@
 
 
-#from __future__ import division
+from __future__ import division
 from time import sleep
 from pyo import *
 from pyo import midiToHz
 from random import *
-#from visual import *
+from visual import *
 from read import *
 #import sys, os
 
@@ -13,8 +13,6 @@ from read import *
 def xzToNote(L):
     #print L
     x=L[0]
-    y=L[1]
-    print y
     z=L[2]
     """
     c3=[48,0x84,"C3"]
@@ -121,26 +119,23 @@ scale = [x[0] for x in [c3,d3,e3,g3,a3,c4,d4,e4,g4,a4,c0,c5]]
 hexscale = [x[1] for x in [c3,d3,e3,g3,a3,c4,d4,e4,g4,a4,c0,c5]]
 strscale = [x[2] for x in [c3,d3,e3,g3,a3,c4,d4,e4,g4,a4,c0,c5]]
 notecoords = [x[3] for x in [c3,d3,e3,g3,a3,c4,d4,e4,g4,a4,c0,c5]]
-#Note = text(height=2,text="Note Played", pos=(0,0,0),align='center', depth=-0.3, color=color.green)
-#rt = shapes.rectangle(pos=(0,-3), width=11, height=1)
-#extrusion(shape=rt)
-#points(pos=[(0,-3,0)], size=35, color=color.red)
-#notepos = sphere(pos=(0,-3,0), radius=0.5, color=color.blue)
-repeatx=None
-repeaty=None
-#sleep(1)
+Note = text(height=2,text="Note Played", pos=(0,0,0),align='center', depth=-0.3, color=color.green)
+rt = shapes.rectangle(pos=(0,-3), width=11, height=1)
+extrusion(shape=rt)
+points(pos=[(0,-3,0)], size=35, color=color.red)
+notepos = sphere(pos=(0,-3,0), radius=0.5, color=color.blue)
+repeat=None
+sleep(1)
 s.start()
 while True:
-    cooords=get_coords()
-    r = xzToNote(cooords)
-    ycord=(cooords[1]+.75)
+    r = xzToNote(get_coords())
     #print r
     y=midiToHz(scale[r])
-    if repeatx !=r:
-        a = Sine(freq=y, mul=(ycord)).out()
-        #Note.text=strscale[r]
-       #print(strscale[r])
-    repeatx = r
+    if repeat !=r:
+        a = Sine(freq=y, mul=(1)).out()
+        Note.text=strscale[r]
+        print(strscale[r])
+    repeat = r
 
     #Note.text=strscale[r]
     #notepos.pos=notecoords[r]
