@@ -1,3 +1,6 @@
+Won prize! Synaptics, Inc. - Most Innovative project with ForcePad - 2nd Prize
+Submission page: http://hackmit.challengepost.com/submissions/17900-lenovo-touchpad-3d-theremin
+
 Our group (RPIDeis) used the Synaptics Forcepad to create a theremin type instrument. With one finger it detects the x, y, and z coordinates. The x coordinate determines the note value, the y coordinate controls the volume, and the z coordinate changes the octave.
 
 The notes that can be played are mapped to the major pentatonic scale to make improvisation over chords easier.
@@ -8,3 +11,4 @@ If we had extra time, the notes will be read into an arduino through the use of 
 
 In addition, the note being played and the octave will be displayed on screen through Visual Python, a 3D graphics module for Python, though it is mostly buggy due to the quick responses of the Forcepad.
 
+Python by Arya [misingnoglic] (music related) and Nick Grippo (translating coordinates to python arrays), C++ backend by all members but Arya.
